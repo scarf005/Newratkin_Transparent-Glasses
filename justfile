@@ -31,9 +31,10 @@ install: build
     destination="$mods_directory/{{ mod_directory }}"
     mkdir -p "$destination"
     rsync --archive --delete --delete-excluded \
-        --exclude '/.*' \
-        --exclude '/README*' \
-        --exclude '/justfile' \
+        --include '/About/***' \
+        --include '/LoadFolders.xml' \
+        --include '/1.6/***' \
+        --exclude '*' \
         ./ "$destination/"
     printf 'Installed {{ mod_directory }} to %s\n' "$destination"
 
