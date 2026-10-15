@@ -57,7 +57,7 @@ install-enable: install
     ).returncode == 0:
         raise SystemExit("Close RimWorld before enabling the mod.")
 
-    package_id = (ET.parse("About/About.xml").getroot().findtext("packageId") or "").strip()
+    package_id = (ET.parse("About/About.xml").getroot().findtext("packageId") or "").strip().lower()
     if not package_id:
         raise SystemExit("About/About.xml has no packageId.")
 
@@ -67,7 +67,7 @@ install-enable: install
     if active_mods is None:
         raise SystemExit(f"{config_path} has no activeMods element.")
 
-    if package_id in ((node.text or "").strip() for node in active_mods.findall("li")):
+    if package_id in ((node.text or "").strip().lower() for node in active_mods.findall("li")):
         print(f"{package_id} is already enabled.")
         raise SystemExit(0)
 
