@@ -1,5 +1,8 @@
 set dotenv-load := true
 
+export RIMWORLD_DIR := env("RIMWORLD_DIR", "/media/scarf/@steam/SteamLibrary/steamapps/common/RimWorld")
+export RIMWORLD_MODS_CONFIG := env("RIMWORLD_MODS_CONFIG", "/home/scarf/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config/ModsConfig.xml")
+
 mod_directory := "NewRatkin-Pretty-Glasses"
 
 # This texture-only mod has no source code to format.
